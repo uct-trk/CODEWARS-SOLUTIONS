@@ -6,6 +6,20 @@ function findOutlier(integers){
     return even.length === 1 ? even[0] : odd[0]
   }
 
-  console.log(findOutlier([0, 1, 2]))
+  console.log(findOutlier([41728448,19166562, -128459032, -27686964, -23232494, 180673180, -175618672, -195423940, 173612930, -2692768,91611998, -137763402, -49223152, -72617428,144197272, -159602765, -89562418,48778556,53091654, -49671992, -166259128,57522080, -138251322,108323276]))
   console.log(findOutlier([2, 4, 0, 100, 4, 11, 2602, 36]))
-  console.log(findOutlier([160, 3, 1719, 19, 11, 13, -21]))
+  console.log(findOutlier([160, 3, 1719, 19, 11, 13,  -21]))
+
+  // gerçek çözüm
+  function findOutlier(integers){
+    return integers.slice(0,3).filter(even).length >= 2 ?
+      integers.find(odd) : integers.find(even)
+   }
+   
+   function even(num){
+     return (num % 2 === 0);
+   }
+   
+   function odd(num){
+     return !even(num)
+   }
